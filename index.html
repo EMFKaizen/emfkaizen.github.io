@@ -88,7 +88,7 @@
       color: var(--blue-main);
       margin-top:0;
     }
-    ul { line-height:1.6; }
+    ul, ol { line-height:1.6; }
     footer {
       text-align:center;
       padding:20px;
@@ -96,6 +96,11 @@
       background:white;
       border-top:1px solid var(--border-soft);
       margin-top:60px;
+    }
+    code {
+      background:#eef0f4;
+      padding:3px 6px;
+      border-radius:4px;
     }
   </style>
 </head>
@@ -114,7 +119,9 @@
     to help users create models and meta-models in arbitrary domain-specific languages. 
     It works at the abstract syntax level, independent of textual or graphical concrete syntaxes.
   </p>
-  <a href="#" class="btn-primary">Download (coming soon)</a>
+  <a href="https://emfkaizen.github.io/updatesite/" class="btn-primary">
+    Install via Eclipse Update Site
+  </a>
 </div>
 
 <section>
@@ -126,6 +133,20 @@
     <li>Drag & drop integration of suggested fragments into EMF editors</li>
     <li>Works with multiple LLM providers (OpenAI, Gemini)</li>
   </ul>
+</section>
+
+<section>
+  <h3>Installation Instructions</h3>
+  <ol>
+    <li>Open <b>Eclipse</b> → <i>Help → Install New Software…</i></li>
+    <li>Click <b>Add...</b></li>
+    <li>Enter the Update Site URL:<br>
+      <code>https://emfkaizen.github.io/updatesite/</code>
+    </li>
+    <li>Select <b>EMF Kaizen</b> from the list</li>
+    <li>Click <b>Next</b>, accept certificates if needed, and complete the installation</li>
+    <li>Restart Eclipse</li>
+  </ol>
 </section>
 
 <section>
