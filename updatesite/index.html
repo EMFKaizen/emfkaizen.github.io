@@ -1,13 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>EMF Kaizen Update Site</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Install EMF Kaizen | Eclipse Update Site</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles (mismo estilo que la página principal) -->
+  <style>
+    :root {
+      --blue-main: #00366F;
+      --blue-chat: #003A78;
+      --green-kaizen: #7BCB15;
+      --orange-action: #FF6F17;
+      --bg-light: #F7F9FC;
+      --text-dark: #333333;
+      --border-soft: #D7DDE5;
+    }
+    body {
+      margin:0; padding:0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    header {
+      display:flex;
+      align-items:center;
+      padding:20px 40px;
+      background:white;
+      border-bottom:1px solid var(--border-soft);
+    }
+    header img {
+      height:70px;
+      margin-right:20px;
+    }
+    header h1 {
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size: 32px;
+      margin:0;
+      color: var(--blue-main);
+    }
+    .hero {
+      text-align:center;
+      padding:60px 20px 40px;
+      background:white;
+    }
+    .hero h2 {
+      font-family:"Poppins", sans-serif;
+      font-size:28px;
+      color: var(--blue-main);
+      margin:0 0 10px;
+    }
+    .hero p {
+      font-size:16px;
+      max-width:650px;
+      margin:auto;
+      line-height:1.5;
+    }
+    .btn-primary, .btn-secondary {
+      display:inline-block;
+      margin-top:20px;
+      padding:10px 24px;
+      background: var(--blue-chat);
+      color:white;
+      font-weight:600;
+      border-radius:6px;
+      text-decoration:none;
+      transition:0.25s;
+      font-size:14px;
+    }
+    .btn-primary:hover,
+    .btn-secondary:hover { background:#0053A7; }
+
+    .btn-secondary {
+      background:#888;
+      margin-left:10px;
+    }
+
+    section {
+      width:90%;
+      max-width:900px;
+      margin:30px auto;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      border:1px solid var(--border-soft);
+    }
+    section h3 {
+      font-family:"Poppins", sans-serif;
+      font-size:22px;
+      color: var(--blue-main);
+      margin-top:0;
+    }
+    ol, ul { line-height:1.7; }
+    code {
+      background:#eef0f4;
+      padding:3px 6px;
+      border-radius:4px;
+    }
+    footer {
+      text-align:center;
+      padding:20px;
+      font-size:13px;
+      background:white;
+      border-top:1px solid var(--border-soft);
+      margin-top:40px;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>EMF Kaizen Eclipse Update Site</h2>
-  <p>This folder is used as an Eclipse update site.</p>
-  <p>You can install the plugin using this URL:</p>
-  <code>https://emfkaizen.github.io/updatesite/</code>
+
+<header>
+  <img src="logo.png" alt="EMF Kaizen Logo">
+  <h1>EMF Kaizen</h1>
+</header>
+
+<div class="hero">
+  <h2>Install EMF Kaizen via Eclipse Update Site</h2>
+  <p>
+    Follow the steps below to install EMF Kaizen into your Eclipse IDE 
+    using the official update site.
+  </p>
+  <a href="https://emfkaizen.github.io/updatesite/" class="btn-primary">
+    Open Update Site URL
+  </a>
+  <a href="index.html" class="btn-secondary">
+    ← Back to Home
+  </a>
+</div>
+
+<section>
+  <h3>Installation Instructions</h3>
+  <ol>
+    <li>Open <b>Eclipse</b>.</li>
+    <li>Go to <b>Help → Install New Software…</b></li>
+    <li>Click <b>Add...</b> to define a new update site.</li>
+    <li>In the <b>Location</b> field, paste the following URL:<br>
+      <code>https://emfkaizen.github.io/updatesite/</code>
+    </li>
+    <li>Press <b>OK</b>. Eclipse will fetch the available features.</li>
+    <li>Select <b>EMF Kaizen</b> from the list of available software.</li>
+    <li>Click <b>Next</b>, review the installation details, and then click <b>Next</b> again.</li>
+    <li>Accept the license agreement and click <b>Finish</b>.</li>
+    <li>If Eclipse shows a security warning about unsigned content, confirm to continue.</li>
+    <li>Restart Eclipse when prompted.</li>
+  </ol>
+</section>
+
+<section>
+  <h3>Update Site URL</h3>
+  <p>
+    You can always use the following URL to re-install or update EMF Kaizen:
+  </p>
+  <p><code>https://emfkaizen.github.io/updatesite/</code></p>
+</section>
+
+<footer>
+  © 2025 EMF Kaizen · Universidad Autónoma de Madrid (UAM)
+</footer>
+
 </body>
 </html>
