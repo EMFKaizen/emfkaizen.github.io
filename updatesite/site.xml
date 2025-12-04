@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.soba.llm.assist.feature_1.0.0.202511261725.jar" id="com.soba.llm.assist.feature" version="1.0.0.202511261725">
+      <category name="LLM_Assistant_Kaizen"/>
+   </feature>
+   <category-def name="LLM_Assistant_Kaizen" label="LLM_Assistant_Kaizen">
+      <description>
+         LLM_Assistant_Kaizen
+      </description>
+   </category-def>
+</site>
