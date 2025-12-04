@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles (mismo estilo que la página principal) -->
+  <!-- Styles -->
   <style>
     :root {
       --blue-main: #00366F;
@@ -60,25 +60,22 @@
       margin:auto;
       line-height:1.5;
     }
-    .btn-primary, .btn-secondary {
+
+    .btn-primary {
       display:inline-block;
-      margin-top:20px;
-      padding:10px 24px;
+      margin-top:25px;
+      padding:12px 28px;
       background: var(--blue-chat);
       color:white;
       font-weight:600;
       border-radius:6px;
       text-decoration:none;
       transition:0.25s;
-      font-size:14px;
+      cursor:pointer;
+      font-size:16px;
+      border:none;
     }
-    .btn-primary:hover,
-    .btn-secondary:hover { background:#0053A7; }
-
-    .btn-secondary {
-      background:#888;
-      margin-left:10px;
-    }
+    .btn-primary:hover { background:#0053A7; }
 
     section {
       width:90%;
@@ -98,7 +95,7 @@
     ol, ul { line-height:1.7; }
     code {
       background:#eef0f4;
-      padding:3px 6px;
+      padding:4px 6px;
       border-radius:4px;
     }
     footer {
@@ -110,6 +107,16 @@
       margin-top:40px;
     }
   </style>
+
+  <!-- Script: Copy URL -->
+  <script>
+    function copyUpdateSite() {
+      const url = "https://emfkaizen.github.io/updatesite/";
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Update Site URL copied to clipboard:\n" + url);
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -125,12 +132,11 @@
     Follow the steps below to install EMF Kaizen into your Eclipse IDE 
     using the official update site.
   </p>
-  <a href="https://emfkaizen.github.io/updatesite/" class="btn-primary">
-    Open Update Site URL
-  </a>
-  <a href="index.html" class="btn-secondary">
-    ← Back to Home
-  </a>
+
+  <!-- Single button that copies the URL -->
+  <button class="btn-primary" onclick="copyUpdateSite()">
+    📋 Copy Update Site URL
+  </button>
 </div>
 
 <section>
