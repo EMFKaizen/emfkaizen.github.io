@@ -137,6 +137,122 @@
   </ul>
 </section>
 
+  <section>
+  <h3>How to Use EMF Kaizen</h3>
+
+  <p>
+    EMF Kaizen supports modelling and meta-modelling activities through an
+    interactive, conversational workflow integrated into Eclipse.
+    The typical usage process consists of preparing the modelling context,
+    configuring the assistant, and requesting recommendations in natural
+    language.
+  </p>
+</section>
+
+<section>
+  <h4>1. Start from an EMF or Ecore Project</h4>
+
+  <p>
+    EMF Kaizen can be used with existing EMF models or meta-models, as well as
+    during the creation of new ones. Users typically start from an Ecore-based
+    project or an EMF modelling workspace opened in Eclipse.
+  </p>
+
+  <img src="assets/ecore-project.png"
+       alt="EMF editor with EMF Kaizen chat and results views"
+       style="width:100%; max-width:900px; display:block; margin:25px auto;">
+</section>
+
+<section>
+  <h4>2. Configure the Meta-Model Context</h4>
+
+  <p>
+    Before requesting assistance, users configure the meta-model that defines
+    the modelling language. This step provides structured context to the
+    assistant and allows controlling which meta-model elements are exposed.
+  </p>
+
+  <p>
+    Using the Configuration Assistant, users can load a meta-model, select
+    relevant meta-model elements, and optionally provide a natural-language
+    description of the language.
+  </p>
+
+  <img src="assets/config-metamodel-1.png"
+       alt="Loading a meta-model in the configuration assistant"
+       style="width:100%; max-width:850px; display:block; margin:25px auto;">
+
+  <img src="assets/config-metamodel-2.png"
+       alt="Selecting meta-model elements"
+       style="width:100%; max-width:850px; display:block; margin:25px auto;">
+
+  <img src="assets/config-metamodel-3.png"
+       alt="Providing a natural-language description of the meta-model"
+       style="width:100%; max-width:850px; display:block; margin:25px auto;">
+</section>
+
+<section>
+  <h4>3. Configure LLM Preferences</h4>
+
+  <p>
+    EMF Kaizen provides a dedicated preferences page where users configure
+    the Large Language Model (LLM) provider and its parameters. Predefined
+    configuration profiles are available, and advanced parameters can be
+    adjusted if needed.
+  </p>
+
+  <img src="assets/preferences.png"
+       alt="EMF Kaizen preferences page"
+       style="width:100%; max-width:850px; display:block; margin:25px auto;">
+</section>
+
+<section>
+  <h4>4. Request Modelling Assistance</h4>
+
+  <p>
+    Once the modelling context is prepared, users interact with EMF Kaizen
+    through a chat-based interface. Requests are written in natural language
+    and describe modelling or meta-modelling tasks, such as completing parts
+    of a model or requesting recommendations.
+  </p>
+
+  <p>
+    The chat view is integrated with the EMF editor and the results view,
+    allowing users to issue requests while inspecting the current model.
+    Generated recommendations are presented separately and can be reviewed
+    before integration.
+  </p>
+
+  <img src="assets/ecore-project.png"
+       alt="Natural-language request and generated recommendations in EMF Kaizen"
+       style="width:100%; max-width:900px; display:block; margin:25px auto;">
+
+  <p style="text-align:center; font-size:14px; color:#666; margin-top:-10px;">
+    Example of a modelling request issued through the EMF Kaizen chat view and
+    the corresponding recommendations shown in the results view.
+  </p>
+</section>
+
+<section>
+  <h4>5. Inspect and Integrate Recommendations</h4>
+
+  <p>
+    Recommended model fragments can be inspected by the user before being
+    incorporated into the target model. Integration is performed explicitly
+    by the user through drag-and-drop actions.
+  </p>
+
+  <p>
+    This interaction model allows users to remain in control of modelling
+    decisions while benefiting from LLM-based assistance.
+  </p>
+
+  <img src="assets/drag-drop.gif"
+       alt="Drag and drop of recommended model fragments (coming soon)"
+       style="width:100%; max-width:850px; display:block; margin:25px auto; opacity:0.85;">
+</section>
+
+
 <section>
   <h3>Architecture Overview</h3>
 
