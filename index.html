@@ -139,13 +139,40 @@
 
 <section>
   <h3>Architecture Overview</h3>
+
   <p>
-    EMF Kaizen builds structured prompts using the current model, its meta-model, 
-    user selection, history, and optional meta-model descriptions. Generated model fragments 
-    are parsed and integrated directly into EMF editors.
+    EMF Kaizen is an intelligent assistant integrated into the Eclipse
+    environment to support modelling and meta-modelling activities based on
+    the Eclipse Modeling Framework (EMF). The architecture is designed to
+    combine conversational interaction with structured model manipulation.
   </p>
-  <p><i>*Full diagram and technical documentation coming soon.</i></p>
+
+  <p>
+    The architecture is organised into three main parts. A configuration
+    component allows users to select and describe meta-models and to configure
+    the Large Language Model (LLM) used by the assistant. A modelling-assistance
+    component provides a chat-based interface for formulating natural-language
+    requests and receiving model recommendations. A session and result
+    management component handles the processing, storage, and integration of
+    generated model fragments.
+  </p>
+
+  <p>
+    Natural-language requests are transformed into structured prompts that
+    incorporate the current model, its meta-model, and the interaction
+    history. The selected LLM generates model fragments that can be inspected
+    and incorporated into the target model through the EMF editor.
+  </p>
+
+  <img src="assets/architecture.png"
+       alt="Architecture of EMF Kaizen"
+       style="width:100%; max-width:900px; display:block; margin:30px auto;">
+
+  <p style="text-align:center; font-size:14px; color:#666; margin-top:-10px;">
+    Figure: Architecture of EMF Kaizen.
+  </p>
 </section>
+
 
 <section>
   <h3>Research & Vision</h3>
