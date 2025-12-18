@@ -249,7 +249,6 @@
     the abstract syntax of the loaded model.
   </p>
 </section>
-
 <section>
   <h4>2. Configure the Meta-Model Context</h4>
   <p>
@@ -259,16 +258,48 @@
     defines the structured context used by the assistant.
   </p>
 
+  <!-- Step 1 -->
+  <img src="assets/config-metamodel-1.png"
+       class="figure"
+       alt="Step 1: Load metamodel from Ecore file or registry">
+
+  <p class="figure-caption">
+    Step 1 – Loading the target meta-model from an Ecore file or from the set of
+    registered meta-models in Eclipse.
+  </p>
+
+  <!-- Step 2 -->
+  <img src="assets/config-metamodel-2.png"
+       class="figure"
+       alt="Step 2: Select relevant metamodel elements">
+
+  <p class="figure-caption">
+    Step 2 – Selecting the relevant meta-model elements to constrain and focus
+    the modelling assistance.
+  </p>
+
+  <!-- Step 3 -->
+  <img src="assets/config-metamodel-3.png"
+       class="figure"
+       alt="Step 3: Natural language description of the metamodel">
+
+  <p class="figure-caption">
+    Step 3 – Editing or automatically generating a natural-language description
+    of the selected meta-model subset.
+  </p>
+
+  <!-- Animated workflow -->
   <div class="figure-crop-sides">
     <img src="assets/config-metamodel-4.gif"
-         alt="Configuration assistant workflow">
+         alt="Configuration assistant full workflow">
   </div>
 
   <p class="figure-caption">
-    Configuration Assistant workflow showing meta-model loading, element
-    selection, and automatic generation of a structured language description.
+    Configuration Assistant workflow combining meta-model loading, element
+    selection, and contextual description generation.
   </p>
 </section>
+
 
 <section>
   <h4>3. Configure LLM Preferences</h4>
@@ -294,7 +325,18 @@
     natural language and can describe completion, refinement, or extension
     tasks.
   </p>
+
+  <img src="assets/chat-request.png"
+       class="figure"
+       alt="Requesting modelling assistance through the EMF Kaizen chat interface">
+
+  <p class="figure-caption">
+    Natural-language modelling request issued through the EMF Kaizen chat
+    interface, triggering the generation of structured modelling
+    recommendations.
+  </p>
 </section>
+
 
 <section>
   <h4>5. Inspect and Integrate Recommendations</h4>
