@@ -208,12 +208,12 @@
       background: white;
     }
     
-    /* Vertical adjustment to remove black bar */
     .figure-dragdrop-crop img {
-      width: calc(100% + 24px);
+      width: 100%;
       display: block;
-      transform: translate(-12px, -78px);
-       scale: 0.5;
+    
+      transform-origin: top center;
+      transform: scale(0.5) translateY(-48px);
     }
 
 
