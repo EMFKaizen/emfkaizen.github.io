@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EMF Kaizen | Intelligent Assistant for Modelling & Meta-Modelling</title>
 
-  <!-- Google Fonts -->
+  <!-- =========================
+       Fonts
+  ========================== -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <!-- =========================
+       Global Styles
+  ========================== -->
   <style>
     :root {
       --blue-main: #00366F;
       --blue-accent: #003A78;
       --bg-light: #F7F9FC;
-      --text-dark: #333;
+      --text-dark: #333333;
       --border-soft: #D7DDE5;
     }
 
@@ -24,6 +29,9 @@
       color: var(--text-dark);
     }
 
+    /* =========================
+       Header
+    ========================== */
     header {
       display: flex;
       align-items: center;
@@ -34,35 +42,40 @@
 
     header img {
       height: 56px;
-      margin-right: 16px;
+      margin-right: 14px;
     }
 
     header h1 {
       font-family: "Poppins", sans-serif;
       font-size: 28px;
+      font-weight: 700;
       margin: 0;
       color: var(--blue-main);
     }
 
+    /* =========================
+       Hero
+    ========================== */
     .hero {
-      background: white;
       text-align: center;
-      padding: 80px 20px 70px;
+      padding: 90px 20px 80px;
+      background: white;
+    }
+
+    .hero .brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--blue-main);
+      margin-bottom: 12px;
     }
 
     .hero h2 {
       font-family: "Poppins", sans-serif;
-      font-size: 44px;
-      color: var(--blue-main);
-      margin-bottom: 10px;
-    }
-
-    .hero h3 {
-      font-family: "Poppins", sans-serif;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 600;
       color: var(--blue-accent);
-      margin-bottom: 20px;
+      margin: 0 0 24px;
     }
 
     .hero p {
@@ -74,8 +87,8 @@
 
     .btn-primary {
       display: inline-block;
-      margin-top: 30px;
-      padding: 12px 32px;
+      margin-top: 34px;
+      padding: 13px 34px;
       background: var(--blue-accent);
       color: white;
       font-weight: 600;
@@ -83,57 +96,78 @@
       text-decoration: none;
     }
 
+    /* =========================
+       Sections
+    ========================== */
     section {
       width: 90%;
       max-width: 1100px;
-      margin: 40px auto;
+      margin: 46px auto;
       background: white;
-      padding: 40px;
+      padding: 42px;
       border-radius: 10px;
       border: 1px solid var(--border-soft);
     }
 
-    section h3 {
+    section h3, section h4 {
       font-family: "Poppins", sans-serif;
-      font-size: 24px;
       color: var(--blue-main);
+    }
+
+    section h3 {
+      font-size: 24px;
       margin-top: 0;
     }
 
     section h4 {
-      font-family: "Poppins", sans-serif;
       font-size: 20px;
-      color: var(--blue-main);
       margin-top: 0;
     }
 
-    ul {
-      padding-left: 20px;
+    section p {
+      line-height: 1.65;
     }
 
+    /* =========================
+       Figures
+    ========================== */
     .figure {
       display: block;
       max-width: 900px;
       margin: 30px auto;
-      border: 1px solid var(--border-soft);
-      border-radius: 8px;
-    }
-
-    .figure-crop-sides {
-      max-width: 760px;
-      margin: 30px auto;
-      overflow: hidden;
       border-radius: 8px;
       border: 1px solid var(--border-soft);
       background: white;
     }
 
-    .figure-crop-sides img {
-      width: 136%;
-      margin-left: -18%;
-      display: block;
+    .figure-caption {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: -10px;
     }
 
+    /* Academic 3-step layout */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    .figure-grid img {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .figure-grid-bottom {
+      max-width: 520px;
+      margin: 18px auto 0;
+    }
+
+    /* Reduced GIF crop */
     .figure-reduced-crop {
       max-width: 540px;
       margin: 30px auto;
@@ -145,17 +179,13 @@
 
     .figure-reduced-crop img {
       width: calc(100% + 24px);
-      transform: translate(-20px, -92px);
       display: block;
+      transform: translate(-20px, -92px);
     }
 
-    .figure-caption {
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-      margin-top: 8px;
-    }
-
+    /* =========================
+       Footer
+    ========================== */
     footer {
       text-align: center;
       padding: 20px;
@@ -170,22 +200,20 @@
 <body>
 
 <header>
-  <a href="https://emfkaizen.github.io/" style="display:flex;align-items:center;text-decoration:none;">
-    <img src="https://emfkaizen.github.io/logo.png" alt="EMF Kaizen Logo">
-    <h1>EMF Kaizen</h1>
-  </a>
+  <img src="https://emfkaizen.github.io/logo.png" alt="EMF Kaizen Logo">
+  <h1>EMF Kaizen</h1>
 </header>
 
 <div class="hero">
-  <h2>EMF Kaizen</h2>
-  <h3>LLM-powered Intelligent Assistant for Modelling & Meta-Modelling</h3>
+  <div class="brand">EMF KAIZEN</div>
+  <h2>LLM-powered Intelligent Assistant for Modelling & Meta-Modelling</h2>
 
   <p>
-    EMF Kaizen is an Eclipse-based conversational assistant that leverages
-    Large Language Models (LLMs) to support modelling and meta-modelling
-    tasks across arbitrary domain-specific languages. The assistant operates
-    at the abstract syntax level and is independent of any textual or graphical
-    concrete syntax.
+    EMF Kaizen is an Eclipse-based intelligent assistant designed to support
+    modelling and meta-modelling activities through the integration of
+    Large Language Models (LLMs). The assistant operates at the level of
+    abstract syntax and is independent of textual or graphical concrete
+    syntaxes, enabling its application across heterogeneous modelling languages.
   </p>
 
   <a href="https://emfkaizen.github.io/updatesite/" class="btn-primary">
@@ -196,111 +224,148 @@
 <section>
   <h3>Key Features</h3>
   <ul>
-    <li>Natural-language assistance for modelling and meta-modelling</li>
-    <li>Abstract-syntax-level operation (syntax independent)</li>
-    <li>Support for arbitrary EMF-based domain-specific languages</li>
-    <li>User-controlled integration via drag-and-drop</li>
-    <li>Multiple LLM providers (OpenAI, Gemini)</li>
+    <li>Natural-language assistance for modelling and meta-modelling tasks</li>
+    <li>Operation over abstract syntax, independent of concrete syntaxes</li>
+    <li>Support for models and meta-models at arbitrary meta-levels</li>
+    <li>User-controlled integration of generated recommendations</li>
+    <li>Compatibility with multiple LLM providers (e.g., OpenAI, Gemini)</li>
   </ul>
 </section>
 
 <section>
-  <h3>Usage Workflow</h3>
+  <h3>Usage Overview</h3>
   <p>
-    EMF Kaizen supports an iterative workflow integrated into Eclipse,
-    combining explicit configuration of modelling context with conversational
-    modelling assistance.
+    EMF Kaizen supports an iterative modelling workflow fully integrated into
+    the Eclipse IDE. The interaction process consists of preparing the modelling
+    context, configuring the assistant, and requesting modelling support using
+    natural language.
   </p>
 </section>
 
 <section>
   <h4>1. Start from an EMF or Ecore Project</h4>
   <p>
-    Users work on an existing EMF model or meta-model, or create a new
-    Ecore-based project. EMF Kaizen operates directly on the abstract
-    representation of the model.
+    Users begin by opening an existing EMF model or meta-model, or by creating
+    a new Ecore-based project. EMF Kaizen directly analyses and manipulates the
+    abstract syntax of the loaded models.
   </p>
 </section>
 
 <section>
   <h4>2. Configure the Meta-Model Context</h4>
+
   <p>
-    The Configuration Assistant enables language engineers to define the
-    modelling context provided to the LLM by selecting relevant meta-model
-    elements and optionally providing a natural-language description.
+    Before requesting modelling assistance, the assistant must be explicitly
+    configured with respect to the target modelling language. This configuration
+    constrains the assistant to the relevant subset of the meta-model and provides
+    the structured context required for semantically grounded recommendations.
   </p>
 
-  <img src="assets/config-metamodel-1.png" class="figure">
-  <p class="figure-caption">Step 1 – Loading the target meta-model.</p>
+  <p>
+    The configuration process is performed through a dedicated
+    <em>Configuration Assistant</em>, which guides the user through three
+    consecutive steps.
+  </p>
 
-  <img src="assets/config-metamodel-2.png" class="figure">
-  <p class="figure-caption">Step 2 – Selecting relevant meta-model elements.</p>
+  <div class="figure-grid">
+    <img src="assets/config-metamodel-1.png"
+         alt="Step 1: Load target meta-model">
 
-  <img src="assets/config-metamodel-3.png" class="figure">
-  <p class="figure-caption">Step 3 – Editing or generating a natural-language description.</p>
-
-  <div class="figure-crop-sides">
-    <img src="assets/config-metamodel-4.gif">
+    <img src="assets/config-metamodel-2.png"
+         alt="Step 2: Select relevant meta-model elements">
   </div>
+
+  <div class="figure-grid-bottom">
+    <img src="assets/config-metamodel-3.png"
+         alt="Step 3: Describe the modelling language">
+  </div>
+
   <p class="figure-caption">
-    Complete Configuration Assistant workflow.
+    Configuration Assistant workflow. Top: loading the target meta-model and
+    selecting the relevant meta-model elements. Bottom: providing or generating
+    a natural-language description of the modelling language used to enrich
+    the structured context passed to the LLM.
   </p>
 </section>
 
 <section>
   <h4>3. Configure LLM Preferences</h4>
   <p>
-    Users configure the LLM provider, model variant, predefined profiles,
-    and advanced inference parameters through a dedicated preferences page.
+    EMF Kaizen provides a dedicated preferences page that allows users to select
+    the LLM provider and configure inference parameters such as model choice,
+    request limits, and advanced reasoning options.
   </p>
 
-  <img src="assets/Preferences.png" class="figure">
-  <p class="figure-caption">LLM preferences configuration page.</p>
+  <img src="assets/Preferences.png" class="figure"
+       alt="LLM preferences configuration">
+
+  <p class="figure-caption">
+    Preferences page for selecting the LLM provider and configuring model-specific
+    inference parameters.
+  </p>
 </section>
 
 <section>
   <h4>4. Request Modelling Assistance</h4>
   <p>
-    Modellers interact with EMF Kaizen via a chat-based interface, issuing
-    natural-language requests for completion, refinement, or explanation.
+    Once the modelling context has been configured, users interact with the
+    assistant through a conversational interface integrated into Eclipse.
+    Modelling requests are expressed in natural language and may describe
+    completion, refinement, or extension tasks over the current model.
   </p>
 
-  <img src="assets/ecore-project.png" class="figure">
-  <p class="figure-caption">Natural-language modelling request and generated recommendations.</p>
+  <img src="assets/ecore-project.png" class="figure"
+       alt="Requesting modelling assistance via chat interface">
+
+  <p class="figure-caption">
+    Natural-language modelling request issued through the EMF Kaizen chat
+    interface, triggering the generation of structured modelling recommendations.
+  </p>
 </section>
 
 <section>
   <h4>5. Inspect and Integrate Recommendations</h4>
   <p>
-    Recommendations are presented as structured model fragments that can
-    be inspected and selectively integrated into the active model via
-    drag-and-drop.
+    Generated recommendations are presented in a dedicated results view.
+    Users can inspect the proposed model fragments and explicitly integrate
+    selected elements into the target model via drag-and-drop operations.
   </p>
 
   <div class="figure-reduced-crop">
-    <img src="assets/drag-drop.gif">
+    <img src="assets/drag-drop.gif"
+         alt="Inspecting and integrating modelling recommendations">
   </div>
-  <p class="figure-caption">User-controlled integration of generated fragments.</p>
+
+  <p class="figure-caption">
+    Inspection of generated model fragments and user-controlled integration
+    into the target model using drag-and-drop.
+  </p>
 </section>
 
 <section>
   <h3>Architecture Overview</h3>
   <p>
-    EMF Kaizen is structured into configuration, modelling-assistance,
-    and session-management subsystems, tightly integrated with Eclipse
-    and EMF editors.
+    EMF Kaizen is architected as a set of Eclipse-integrated components that
+    separate conversational interaction, configuration management, prompt
+    construction, and result integration. This modular architecture enables
+    flexible integration with different LLM providers and modelling languages.
   </p>
 
-  <img src="assets/architecture.png" class="figure">
-  <p class="figure-caption">High-level architecture of EMF Kaizen.</p>
+  <img src="assets/architecture.png" class="figure"
+       alt="EMF Kaizen architecture overview">
+
+  <p class="figure-caption">
+    High-level architecture of EMF Kaizen, illustrating its integration with
+    Eclipse, external LLM providers, and EMF-based modelling environments.
+  </p>
 </section>
 
 <section>
   <h3>Research Context</h3>
   <p>
-    EMF Kaizen is an ongoing research project, exploring
-    the integration of Large Language Models with Model-Driven Engineering
-    environments.
+    EMF Kaizen is developed as part of an ongoing academic research effort
+    exploring the integration of Large Language Models with Model-Driven
+    Engineering environments.
   </p>
 </section>
 
