@@ -199,22 +199,21 @@
     }
 
     /* Dedicated crop for drag-and-drop GIF */
-    .figure-dragdrop-crop {
-      max-width: 680px;
-      margin: 28px auto;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 1px solid var(--border-soft);
-      background: white;
-    }
-    
-    .figure-dragdrop-crop img {
-      width: 100%;
-      display: block;
-    
-      transform-origin: top center;
-      transform: scale(0.5) translateY(-48px);
-    }
+  .figure-dragdrop-crop {
+    max-width: 340px;   /* ← 50% de 680px */
+    margin: 28px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--border-soft);
+    background: white;
+  }
+
+ .figure-dragdrop-crop img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 
     /* =========================
