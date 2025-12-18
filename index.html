@@ -235,10 +235,19 @@
 <section>
   <h3>Usage Overview</h3>
   <p>
-    EMF Kaizen supports an iterative modelling workflow fully integrated into
-    the Eclipse IDE. The interaction process consists of preparing the modelling
-    context, configuring the assistant, and requesting modelling support using
-    natural language.
+    EMF Kaizen follows a conversational, context-aware assistance model.
+    Instead of operating through predefined commands or menus, users interact
+    with the assistant using natural language requests that are interpreted
+    with respect to the current model, its meta-model, and the active modelling
+    context.
+  </p>
+
+  <p>
+    Depending on the intent of the request, EMF Kaizen either provides
+    explanatory answers or generates model fragments that conform to the
+    configured meta-model. Generated fragments are explicitly separated from
+    the model under construction, allowing users to inspect, select, and
+    incorporate them in a controlled manner.
   </p>
 </section>
 
@@ -255,122 +264,306 @@
   <h4>2. Configure the Meta-Model Context</h4>
 
   <p>
-    Before requesting modelling assistance, the assistant must be explicitly
+    Before requesting modelling assistance, EMF Kaizen must be explicitly
     configured with respect to the target modelling language. This configuration
-    constrains the assistant to the relevant subset of the meta-model and provides
-    the structured context required for semantically grounded recommendations.
+    determines which meta-model elements are exposed to the assistant and
+    constrains the space of valid recommendations, ensuring that generated
+    model fragments are semantically meaningful and conformant.
   </p>
 
   <p>
-    The configuration process is performed through a dedicated
+    The configuration is performed through a dedicated
     <em>Configuration Assistant</em>, which guides the user through three
     consecutive steps.
   </p>
 
+  <p>
+    In the first step (left), the user selects the meta-model that will serve as
+    context for the assistance. The meta-model can be loaded either from a local
+    <code>.ecore</code> file or from the set of meta-models already registered
+    in the Eclipse environment. This allows EMF Kaizen to operate both on
+    project-specific languages and on standard modelling languages available
+    in the workspace.
+  </p>
+
+  <p>
+    In the second step (right), the assistant presents all concrete classes and
+    all changeable, non-derived attributes and references defined in the selected
+    meta-model. The user can then select the subset of elements that are relevant
+    for the intended modelling task. Filtering irrelevant or non-changeable
+    elements reduces prompt size and prevents the assistant from suggesting
+    invalid or undesired model constructs.
+  </p>
+
   <div class="figure-grid">
     <img src="assets/config-metamodel-1.png"
-         alt="Step 1: Load target meta-model">
+         alt="Step 1: Load target meta-model from file or registered meta-models">
 
     <img src="assets/config-metamodel-2.png"
-         alt="Step 2: Select relevant meta-model elements">
+         alt="Step 2: Select relevant classes, attributes, and references">
   </div>
+
+  <p>
+    In the final step (bottom), the user provides a natural-language description
+    of the modelling language. This description can be written manually or
+    generated automatically by EMF Kaizen and refined by the user. The resulting
+    description is incorporated into the assistant’s prompts to enrich the
+    structured meta-model information with domain-level semantics.
+  </p>
 
   <div class="figure-grid-bottom">
     <img src="assets/config-metamodel-3.png"
-         alt="Step 3: Describe the modelling language">
+         alt="Step 3: Provide or generate a natural-language description of the meta-model">
   </div>
 
   <p class="figure-caption">
-    Configuration Assistant workflow. Top: loading the target meta-model and
-    selecting the relevant meta-model elements. Bottom: providing or generating
-    a natural-language description of the modelling language used to enrich
-    the structured context passed to the LLM.
+    Configuration Assistant workflow. Top: selection of the target meta-model
+    and filtering of relevant meta-model elements. Bottom: provision or
+    generation of a natural-language description of the modelling language,
+    used to enrich the context passed to the LLM.
   </p>
 </section>
 
 <section>
   <h4>3. Configure LLM Preferences</h4>
+
   <p>
-    EMF Kaizen provides a dedicated preferences page that allows users to select
-    the LLM provider and configure inference parameters such as model choice,
-    request limits, and advanced reasoning options.
+    EMF Kaizen provides a dedicated <em>LLM Preferences Page</em> that allows the
+    user to configure the large language model used by the assistant. This
+    configuration determines which LLM provider is employed and how inference
+    requests are performed during modelling assistance.
+  </p>
+
+  <p>
+    As shown in the figure, the user can first select the LLM provider to be used
+    by EMF Kaizen. The assistant currently supports models from multiple vendors,
+    including OpenAI (GPT models) and Google (Gemini models). Access to the
+    selected provider requires an API key, which can be entered and validated
+    directly within the preferences page.
+  </p>
+
+  <p>
+    The preferences page also allows configuring request-level constraints, such
+    as the maximum request timeout, which bounds the time the assistant waits
+    for a response from the selected LLM during an assistance interaction.
+  </p>
+
+  <p>
+    In addition, EMF Kaizen supports the definition and selection of
+    <em>LLM configuration profiles</em>. These profiles encapsulate model-specific
+    parameters and can be predefined (e.g., cost-optimised or deterministic
+    configurations) or customised by the user. When defining a custom profile,
+    the user selects the concrete LLM version and configures advanced inference
+    parameters.
+  </p>
+
+  <p>
+    Advanced parameters include, depending on the selected model, settings such
+    as temperature, top-p sampling, maximum output tokens, and the level of
+    reasoning when supported by the LLM. These parameters allow users to control
+    the trade-offs between determinism, response diversity, output size, and
+    reasoning depth of the generated assistance.
   </p>
 
   <img src="assets/Preferences.png" class="figure"
-       alt="LLM preferences configuration">
+       alt="LLM preferences configuration page">
 
   <p class="figure-caption">
-    Preferences page for selecting the LLM provider and configuring model-specific
-    inference parameters.
+    LLM Preferences Page. The user selects the LLM provider and API key, configures
+    request constraints, and chooses or defines LLM configuration profiles that
+    control model selection and inference parameters used by EMF Kaizen.
   </p>
 </section>
 
 <section>
   <h4>4. Request Modelling Assistance</h4>
+
   <p>
-    Once the modelling context has been configured, users interact with the
-    assistant through a conversational interface integrated into Eclipse.
-    Modelling requests are expressed in natural language and may describe
-    completion, refinement, or extension tasks over the current model.
+    Once the modelling context and LLM preferences have been configured, users
+    interact with EMF Kaizen through a conversational interface embedded in the
+    Eclipse environment. Modelling assistance is requested using natural
+    language, allowing users to express modelling intentions without relying on
+    predefined commands or menus.
+  </p>
+
+  <p>
+    As illustrated in the figure, modelling requests are issued through the
+    <em>Chat View</em>. Each request is analysed by EMF Kaizen to identify the
+    user’s intent, distinguishing between explanatory questions and model
+    completion requests. The assistant interprets the request in relation to the
+    current EMF model, its meta-model, the selected model elements (if any), and
+    the ongoing interaction history.
+  </p>
+
+  <p>
+    For model completion requests, EMF Kaizen constructs a structured prompt
+    that combines the user’s request with the active modelling context and sends
+    it to the configured LLM. The LLM response is then parsed into one or more
+    model fragments that conform to the configured meta-model.
+  </p>
+
+  <p>
+    Generated model fragments are presented separately in the <em>Result View</em>,
+    where they can be inspected before incorporation. Recommendations are shown
+    in a tree-based representation, including newly created objects, attribute
+    values, and references. This separation allows users to retain full control
+    over which parts of the generated content are incorporated into the model
+    under construction.
+  </p>
+
+  <p>
+    Explanatory requests, such as questions about the current model or its
+    meta-model, are answered directly in natural language within the chat
+    interface, without producing model fragments. This unified interaction model
+    enables both modelling assistance and conceptual clarification within the
+    same conversational workflow.
   </p>
 
   <img src="assets/ecore-project.png" class="figure"
-       alt="Requesting modelling assistance via chat interface">
+       alt="Requesting modelling assistance via the EMF Kaizen chat and result views">
 
   <p class="figure-caption">
-    Natural-language modelling request issued through the EMF Kaizen chat
-    interface, triggering the generation of structured modelling recommendations.
+    Natural-language modelling request issued through the EMF Kaizen Chat View.
+    The assistant processes the request using the active model and meta-model
+    as context, and presents the resulting model fragment recommendations in the
+    Result View for inspection and controlled incorporation.
   </p>
 </section>
 
+
 <section>
   <h4>5. Inspect and Integrate Recommendations</h4>
+
   <p>
-    Generated recommendations are presented in a dedicated results view.
-    Users can inspect the proposed model fragments and explicitly integrate
-    selected elements into the target model via drag-and-drop operations.
+    When a modelling request results in model completion, EMF Kaizen presents
+    the generated recommendations in a dedicated <em>Result View</em>, clearly
+    separated from the model under construction. Each recommendation corresponds
+    to a set of model fragments produced by the assistant in response to a
+    specific natural-language request.
+  </p>
+
+  <p>
+    As illustrated in the figure, recommended model fragments are displayed in
+    a tree-based structure that mirrors the organisation of EMF models. This
+    representation allows users to inspect newly proposed objects, their
+    attributes, and their references before any modification is applied to the
+    target model.
+  </p>
+
+  <p>
+    Integration of recommendations is fully user-controlled. Users can
+    incorporate entire recommendations or selectively integrate individual
+    elements via drag-and-drop operations into the EMF modelling editor. During
+    this process, recommended objects are cloned, ensuring that the same
+    recommendation can be reused multiple times without side effects.
+  </p>
+
+  <p>
+    Partial integration is also supported. When only a subset of a recommended
+    fragment is incorporated, EMF Kaizen ensures that the integrated elements
+    remain consistent, avoiding issues such as unintended dependencies on
+    non-integrated objects. This enables incremental adoption and refinement of
+    generated content within existing models.
   </p>
 
   <div class="figure-reduced-crop">
     <img src="assets/drag-drop.gif"
-         alt="Inspecting and integrating modelling recommendations">
+         alt="Inspecting and integrating modelling recommendations via drag-and-drop">
   </div>
 
   <p class="figure-caption">
-    Inspection of generated model fragments and user-controlled integration
-    into the target model using drag-and-drop.
+    Result View displaying recommended model fragments in a tree-based
+    representation. Users inspect the generated content and selectively
+    integrate model elements into the target EMF model using drag-and-drop
+    operations.
   </p>
 </section>
 
+
 <section>
   <h3>Architecture Overview</h3>
+
   <p>
-    EMF Kaizen is architected as a set of Eclipse-integrated components that
-    separate conversational interaction, configuration management, prompt
-    construction, and result integration. This modular architecture enables
-    flexible integration with different LLM providers and modelling languages.
+    EMF Kaizen is implemented as a modular Eclipse plugin architecture that
+    integrates conversational modelling assistance directly into the EMF-based
+    modelling environment. Its design separates user interaction, configuration,
+    assistance logic, and session management, enabling extensibility and
+    flexible integration with different modelling languages and LLM providers.
+  </p>
+
+  <p>
+    As illustrated in the figure, EMF Kaizen is embedded into Eclipse through
+    standard extension mechanisms, contributing dedicated views, menus, and
+    preference pages. Modellers interact with the assistant primarily through
+    the <em>Chat View</em> and the <em>Result View</em>, which operate alongside
+    the standard EMF modelling editor. Language engineers configure the assistant
+    through the <em>Configuration Assistant</em> and the <em>LLM Preferences Page</em>,
+    both exposed via Eclipse menus and preferences.
+  </p>
+
+  <p>
+    At the core of the architecture lies the <em>Assistance subsystem</em>, which
+    processes user requests. Incoming natural-language requests are first
+    analysed by an <em>Intent Classifier</em>, which distinguishes between
+    explanatory questions, model completion requests, and off-topic inputs.
+    Based on the detected intent, the <em>Prompt Builder</em> assembles structured
+    prompts that combine the user request with the active modelling context,
+    meta-model information, configuration data, and conversation history.
+  </p>
+
+  <p>
+    Communication with external Large Language Models is handled through a
+    dedicated abstraction layer, allowing EMF Kaizen to interact with different
+    LLM providers, such as OpenAI GPT models and Google Gemini models. Responses
+    returned by the LLMs are processed by the <em>JSON Parser and Serialiser</em>,
+    which transforms generated model fragments into EMF-compatible objects while
+    filtering invalid or non-conformant elements.
+  </p>
+
+  <p>
+    Generated recommendations and conversational interactions are managed by the
+    <em>Session Manager</em>, which persists chat histories and recommended model
+    fragments across modelling sessions. This enables long-running workflows,
+    reuse of recommendations, and traceability of modelling decisions over time.
   </p>
 
   <img src="assets/architecture.png" class="figure"
        alt="EMF Kaizen architecture overview">
 
   <p class="figure-caption">
-    High-level architecture of EMF Kaizen, illustrating its integration with
-    Eclipse, external LLM providers, and EMF-based modelling environments.
+    High-level architecture of EMF Kaizen. The assistant integrates with Eclipse
+    through views, menus, and preference pages, and comprises configuration,
+    assistance, and session management subsystems. External LLM providers are
+    accessed through a dedicated interface, while generated model fragments are
+    parsed and integrated into EMF-based modelling environments.
   </p>
 </section>
 
+
 <section>
-  <h3>Research Context</h3>
+  <h3>Research Context and Authorship</h3>
+
   <p>
-    EMF Kaizen is developed as part of an ongoing academic research effort
-    exploring the integration of Large Language Models with Model-Driven
-    Engineering environments.
+    EMF Kaizen is developed as part of an academic research effort within the
+    field of Model-Driven Engineering, focusing on the integration of Large
+    Language Models into modelling and meta-modelling environments.
+  </p>
+
+  <p>
+    The tool is developed by members of the <em>Modelling & Software Engineering
+    Research Group (MISO)</em> at the <em>Universidad Autónoma de Madrid (UAM)</em>,
+    Spain. The research is conducted by Lissette Almonte, Jefferson Iván Rengifo,
+    Esther Guerra, and Juan de Lara, and is supported by the Computer Science
+    Department at UAM.
   </p>
 </section>
 
 <footer>
-  © 2025 EMF Kaizen
+  <p>
+    © 2025 EMF Kaizen — An academic research tool developed by the
+    Modelling & Software Engineering Research Group (MISO),
+    Universidad Autónoma de Madrid (UAM), Spain.
+  </p>
 </footer>
 
 </body>
