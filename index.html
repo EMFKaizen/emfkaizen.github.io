@@ -198,6 +198,22 @@
       background: white;
     }
 
+    /* Dedicated crop for drag-and-drop GIF */
+    .figure-dragdrop-crop {
+      max-width: 680px;
+      margin: 28px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      background: white;
+    }
+    
+    /* Vertical adjustment to remove black bar */
+    .figure-dragdrop-crop img {
+      width: calc(100% + 20px);
+      display: block;
+      transform: translate(-10px, -22px);
+    }
 
 
     /* =========================
