@@ -95,6 +95,29 @@
       border-radius: 6px;
       text-decoration: none;
     }
+      
+    /* =========================
+       Navigation menu
+    ========================== */
+      
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: white;
+      padding: 12px 40px;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      margin-right: 28px;
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--blue-main);
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
 
     /* =========================
        Sections
@@ -214,6 +237,16 @@
   display: block;
 }
 
+    /* =========================
+       Video demo
+    ========================== */
+.demo-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+  background: #000;
+}
 
 
     /* =========================
@@ -231,10 +264,16 @@
 </head>
 
 <body>
-
 <header>
   <img src="https://emfkaizen.github.io/logov1.png" alt="EMF Kaizen Logo">
   <h1>EMF Kaizen</h1>
+<nav class="navbar">
+  <a href="#overview">Overview</a>
+  <a href="#demo">Tool Demo</a>
+  <a href="#workflow">How It Works</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#research">Research Context</a>
+</nav>
 </header>
 
 <div class="hero">
@@ -254,8 +293,8 @@
   </a>
 </div>
 
-<section>
-  <h3>Key Features</h3>
+<section id="overview" style="scroll-margin-top: 90px;">
+<h3>Overview</h3>
   <ul>
     <li>Natural-language assistance for modelling and meta-modelling tasks</li>
     <li>Operation over abstract syntax, independent of concrete syntaxes</li>
@@ -263,10 +302,7 @@
     <li>User-controlled integration of generated recommendations</li>
     <li>Compatibility with multiple LLM providers (e.g., OpenAI, Gemini)</li>
   </ul>
-</section>
-
-<section>
-  <h3>Usage Overview</h3>
+    
   <p>
     EMF Kaizen follows a conversational, context-aware assistance model.
     Instead of operating through predefined commands or menus, users interact
@@ -283,7 +319,22 @@
     incorporate them in a controlled manner.
   </p>
 </section>
-
+    
+<section id="demo" style="scroll-margin-top: 90px;">
+    <h3>Tool Demo</h3>
+    <p>
+        Short demonstration of EMF Kaizen showing configuration,
+        assistant interaction, and recommendation integration workflow.
+    </p>
+    <video class="demo-video" controls preload="metadata"
+      poster="https://emfkaizen.github.io/assets/videos/demo-preview.png">
+    <source src="assets/videos/emfkaizen-demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</section>
+    
+<section id="workflow" style="scroll-margin-top: 90px;">
+<h3>How EMF Kaizen Works</h3>
 <section>
   <h4>1. Start from an EMF or Ecore Project</h4>
   <p>
@@ -511,9 +562,9 @@
     operations.
   </p>
 </section>
+</section>
 
-
-<section>
+<section id="architecture" style="scroll-margin-top: 90px;">
   <h3>Architecture Overview</h3>
 
   <p>
@@ -573,7 +624,7 @@
 </section>
 
 
-<section>
+<section id="research" style="scroll-margin-top: 90px;">
   <h3>Research Context and Authorship</h3>
 
   <p>
